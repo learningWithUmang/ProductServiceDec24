@@ -20,6 +20,13 @@ public class Category extends BaseModel{
     @OneToMany(mappedBy = "category", cascade = {CascadeType.REMOVE})
     private List<Product> products; //electronics
 
+    //deletes a category
+    //deleting cat_id = 4
+    //Product
+    //cat_id column
+    //Category : Product : 1 : m
+    //Read about cascade types and fk constraints.
+
     public String getTitle() {
         return title;
     }

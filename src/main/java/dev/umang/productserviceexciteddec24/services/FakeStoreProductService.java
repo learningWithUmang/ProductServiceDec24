@@ -1,5 +1,6 @@
 package dev.umang.productserviceexciteddec24.services;
 
+import dev.umang.productserviceexciteddec24.dtos.CreateProductRequestDTO;
 import dev.umang.productserviceexciteddec24.dtos.FakeStoreProductDTO;
 import dev.umang.productserviceexciteddec24.models.Category;
 import dev.umang.productserviceexciteddec24.models.Product;
@@ -42,5 +43,10 @@ public class FakeStoreProductService implements ProductService{
         }
 
         return products;
+    }
+
+    @Override
+    public Product createProduct(String title, String description, String image, String category, double price) {
+        return null;
     }
 }

@@ -52,3 +52,24 @@ public class BaseModel {
         isDeleted = deleted;
     }
 }
+/*
+Product table
+
+id title desc price createdAt ..... isDeleted
+
+1                                       f
+2                                       T
+3
+4
+5
+6
+89
+31
+23
+12
+3234
+
+Select * from products
+where isDeledted = false
+
+ */

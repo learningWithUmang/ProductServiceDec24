@@ -57,6 +57,12 @@ public class Product extends BaseModel{
     private double price;
     @ManyToOne(cascade = {CascadeType.PERSIST})
     private Category category;
+    //Product : Category => m : 1
+    //fk constraints
+    //deleting a products, category?
+    //1 -> cat_id = 5
+    //adding a new prod => 4,
+    //yellow giraffe=>4, teddy_bears
     private String imageUrl;
 
     //P:O
