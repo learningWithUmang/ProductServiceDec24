@@ -1,6 +1,7 @@
 package dev.umang.productserviceexciteddec24.services;
 
 import dev.umang.productserviceexciteddec24.dtos.CreateProductRequestDTO;
+import dev.umang.productserviceexciteddec24.exceptions.ProductNotFoundException;
 import dev.umang.productserviceexciteddec24.models.Category;
 import dev.umang.productserviceexciteddec24.models.Product;
 import dev.umang.productserviceexciteddec24.repository.CategoryRepository;
@@ -8,6 +9,7 @@ import dev.umang.productserviceexciteddec24.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("selfProductService")
 public class SelfProductService implements ProductService{
@@ -21,8 +23,16 @@ public class SelfProductService implements ProductService{
         this.categoryRepository = categoryRepository;
     }
     @Override
-    public Product getSingleProduct(long id) {
-        return null;
+    public Product getSingleProduct(long id) throws ProductNotFoundException {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+
+        if(optionalProduct.isEmpty()){
+            //product with the given id doesn't exist
+            //either you can throw an exception further or you handle it
+            throw new ProductNotFoundException("Product with the given id doesn't exist");
+        }
+
+        return optionalProduct.get();
     }
     //HW to implement this? - 1 line or max 2 lines
 

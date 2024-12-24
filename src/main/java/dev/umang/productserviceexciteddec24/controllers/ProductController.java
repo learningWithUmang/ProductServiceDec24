@@ -1,6 +1,7 @@
 package dev.umang.productserviceexciteddec24.controllers;
 
 import dev.umang.productserviceexciteddec24.dtos.CreateProductRequestDTO;
+import dev.umang.productserviceexciteddec24.exceptions.ProductNotFoundException;
 import dev.umang.productserviceexciteddec24.models.Product;
 import dev.umang.productserviceexciteddec24.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,7 +25,8 @@ public class ProductController {
     //products/3
 
     @GetMapping("/products/{id}")
-    Product getSingleProduct(@PathVariable("id") long id){
+    Product getSingleProduct(@PathVariable("id") long id) throws ProductNotFoundException {
+        //either handle the exception or throw it further
         return productService.getSingleProduct(id);
     }
 
