@@ -52,6 +52,8 @@ public class Product extends BaseModel{
         this.imageUrl = imageUrl;
     }
 
+    //Eager - fetched as part of main object
+    //lazy - not fetched as part of main object
     private String title;
     private String description;
     private double price;

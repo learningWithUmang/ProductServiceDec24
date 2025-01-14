@@ -5,6 +5,7 @@ import dev.umang.productserviceexciteddec24.exceptions.ProductNotFoundException;
 import dev.umang.productserviceexciteddec24.models.Product;
 import dev.umang.productserviceexciteddec24.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,16 @@ public class ProductController {
         return productService.getAllProducts();
 
     }
+
+    @GetMapping("/products/paginated")
+    //accept filter params which you're going to provide to the service
+    Page<Product> getPaginatedProducts(@RequestParam("pageNo") int pageNo, @RequestParam("pageSize") int pageSize){
+        //should i return page of prod or list of prod to the frontend??
+        //please explore how to convert Page<T> to List<T> - HW
+        return productService.getPaginatedProducts(pageNo, pageSize);
+    }
+
+
 
     @PostMapping("/products")
     public Product createProduct(@RequestBody CreateProductRequestDTO createProductRequestDTO){
